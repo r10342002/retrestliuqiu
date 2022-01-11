@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <style>
+        .opa {
+            opacity: 1;
+            position: absolute;
+            object-fit: cover;
+            height: 100vh;
+            width: 100vw;
+            left: 0;
+            top: 0;
+        }
+
+        .earth-img {
+            position: fixed;
+            height: 100%;
+            object-fit: cover;
+            /*              object-position: right;*/
+            opacity: 1;
+        }
+
+        #bg-img {
+            background-image: url(images/Linpen2019_lg.jpg);
+            background-position: 0 0;
+            animation: move 1s linear forwards;
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .shine {
+            width: 50px;
+            margin: 30px;
+            float: left;
+        }
+
+        .shine:hover {
+            filter: brightness(500%);
+        }
+
+        /* <!-- GIS圖  --> */
+        #first {
+            background-image: url("https://res.cloudinary.com/dxfjh5t3p/image/upload/v1641831773/QGIS-01_feneem.jpg");
+            min-height: 2400px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #second {
+            background-image: url("https://res.cloudinary.com/dxfjh5t3p/image/upload/v1641831772/QGIS-02_wbiyob.jpg");
+            min-height: 1200px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #third {
+            background-image: url("https://res.cloudinary.com/dxfjh5t3p/image/upload/v1641831772/QGIS-03_qzmi2j.jpg");
+            min-height: 1200px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+    <title>十層樓飯店落地：小琉球岌岌可危的陸域景觀</title>
+</head>
+
+<body>
+    <!-- 主視覺 -->
+    <div id="section1" class="container-fluid text-center" style="
+        height:100vh;
+        background-image: url(https://res.cloudinary.com/dvrqzjv98/video/upload/v1641875166/%E5%B0%8F%E7%90%89%E7%90%83Balance_color_AdobeCreativeCloudExpress_soyrqf.mp4);
+        background-size: cover;
+        background-position: 50% 30%;
+        background-repeat: no-repeat;">
+        <p id="title" style="
+            padding-top: 33vh;
+            text-shadow: 1vh 1vh 1vh rgb(13, 13, 14); 
+            color: white; 
+            font-size: 6.5vh;
+            font-weight: 600;">十層樓飯店落地：<br>小琉球岌岌可危的陸域景觀</p>
+    </div>
+
+    <!-- 報導前言-->
+    <div id="intro">
+        <div style="height: 100vh;background-color: white;">
+            <div class="container" style="text-align: justify; line-height: 200%;">
+                <p style="
+                      width: 700px;
+                      color: rgb(77, 77, 77);
+                      font-size: 19px;
+                      position: absolute;
+                      top: 115%;
+                      left: 25%">
+                    當屏東的交通船駛近小琉球白沙尾碼頭，大型施工機具與建地正映入乘客的眼簾。不久之後，一座十層樓飯店即將在此地落成。
+                    <br><br>
+                    2020年9月，由鳳凰旅行社營運、鑫富都建設規劃的高級旅店，瞄準消費力強的高端客，預計於2022年底完工。當十層樓飯店竣工後，小琉球全島不超過六層樓的現有地景，將不復存在。
+                    <br><br>
+                    屏東縣琉球鄉（俗稱小琉球）是國內知名的觀光景點，自2000年起，劃入大鵬灣國家風景區範圍之內。政府積極投入經費，建立完善的基礎設施與生活機能，也因此帶動琉球遊子返鄉創業，使得旅宿、濱海遊憩及餐飲業者紛紛興起。
+
+                    然而，過多的遊客導致垃圾管理、污水處理及生物危機等課題浮現於島上；旅宿與觀光業者遊走在法律邊緣，追隨蓬勃的商機，不停開發這片珍貴的珊瑚礁島嶼。
+                    <br><br>
+                    鳳凰旅社的十層樓飯店像是一記警鈴：觀光產業帶來的無上限破壞，能不能看到一個終點？
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- 飯店before&after -->
+
+    <script>
+        (function () {
+            var namespace = '__twreporterEmbeddedData';
+            var pkg = 'scrollable-video';
+            if (typeof window != 'undefined') {
+                if (!window.hasOwnProperty(namespace)) {
+                    window[namespace] = {};
+                }
+                if (window[namespace] && !window[namespace].hasOwnProperty(pkg)) {
+                    window[namespace][pkg] = [];
+                }
+                if (Array.isArray(window[namespace][pkg])) {
+                    var data = {
+                        "video": {
+                            "sources": [{
+                                "type": "video\u002Fmp4",
+                                "src": "https:\u002F\u002Fres.cloudinary.com\u002Fdvrqzjv98\u002Fvideo\u002Fupload\u002Fv1641883559\u002F%E5%B0%8F%E7%90%89%E7%90%83%E7%96%8A%E5%9C%96_AdobeCreativeCloudExpress_cp4syb.mp4",
+                                "width": 1920,
+                                "height": 1080
+                            }]
+                        },
+                        "captions": [{
+                            "text": "鳳凰旅行社的十層樓飯店案已於2021年​11月23日正式動工，此事件將為小琉球塑造觀光地景的新章節。",
+                            "time": 0.5
+                        }],
+                        "appProps": {
+                            "captionsSetting": {
+                                "xBoxAlign": "right",
+                                "xPosition": "8.7%",
+                                "yBoxAlign": "bottom",
+                                "yPosition": "20px"
+                            },
+                            "captionSetting": {
+                                "textAlign": "right"
+                            },
+                            "secondsPer100vh": 1.5,
+                            "skipLoadLocationRegExp": "editor",
+                            "forcedPreloadVideo": true,
+                            "gsapVersion": "3.5.1",
+                            "scrollTriggerVersion": "3.5.1",
+                            "pollingTimeout": 700,
+                            "preloadCacheType": "force-cache"
+                        },
+                        "theme": {
+                            "mq": {
+                                "mobileMaxWidth": "767px"
+                            },
+                            "captions": {
+                                "color": "#fff",
+                                "link": {
+                                    "color": "#a67a44",
+                                    "underlineColor": "#a67a44"
+                                },
+                                "lineHieght": "1.7",
+                                "mobileLineHeight": "1.7",
+                                "fontStyle": "normal",
+                                "fontWeight": "bold",
+                                "fontSize": "24px",
+                                "mobile": {
+                                    "fontSize": "22px"
+                                },
+                                "fontFamily": "ff-tisa-web-pro, source-han-sans-traditional, Noto Sans TC, PingFang TC, Apple LiGothic Medium, Roboto, Microsoft JhengHei, Lucida Grande, Lucida Sans Unicode, sans-serif",
+                                "box": {
+                                    "background": "#404040",
+                                    "width": "450px",
+                                    "mobileWidth": "77%",
+                                    "spanPadding": "6px 15px",
+                                    "mobilePadding": "12px 12px 14px 18px"
+                                }
+                            }
+                        },
+                        "uuid": "7dc2b926-6cb3-4e2e-a2d5-398d1a5dfa20"
+                    };
+                    window[namespace][pkg].push(data);
+                }
+            }
+        })()
+    </script>
+    <div id="7dc2b926-6cb3-4e2e-a2d5-398d1a5dfa20"></div>
+
+    <script type="text/javascript" crossorigin
+        src="https://unpkg.com/@twreporter/scrollable-video@1.0.1/dist/main.abb2610d2c16acab4a4c.bundle.js"></script>
+
+
+    <script>
+        $(function () {
+            var winh = $(window).height();
+            var outer_pos = $("#outer").offset().top;
+            var outer_end = outer_pos + $("#outer").height();
+
+            $(window).scroll(function () {
+                var scrolled = $(document).scrollTop();
+                $(".opa").each(function (index) {
+                    if (scrolled > outer_pos && scrolled < outer_end) {
+                        $(this).css("opacity", $(this).data("pos") - (scrolled - outer_pos) /
+                            winh);
+                        console.log(
+                            "[" +
+                            ((scrolled - outer_pos) / winh).toPrecision(1) +
+                            "]" +
+                            index +
+                            ": " +
+                            $(this).css("opacity")
+                        );
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- 旅宿量圖表 -->
+
+    <script>
+        (function () {
+            var namespace = '__twreporterEmbeddedData';
+            var pkg = 'scrollable-video';
+            if (typeof window != 'undefined') {
+                if (!window.hasOwnProperty(namespace)) {
+                    window[namespace] = {};
+                }
+                if (window[namespace] && !window[namespace].hasOwnProperty(pkg)) {
+                    window[namespace][pkg] = [];
+                }
+                if (Array.isArray(window[namespace][pkg])) {
+                    var data = {
+                        "video": {
+                            "sources": [{
+                                "type": "video\u002Fmp4",
+                                "src": "https:\u002F\u002Fres.cloudinary.com\u002Fdvrqzjv98\u002Fvideo\u002Fupload\u002Fv1641643896\u002F9y0o9-otxpy_eodona.mp4",
+                                "width": 1920,
+                                "height": 1080
+                            }]
+                        },
+                        "captions": [{
+                            "text": "1986年代小琉球因自然環境獨特，成為熱門海島觀光地",
+                            "time": 1.5
+                        }, {
+                            "text": "2000年後併入大鵬灣國家風景區，觀光活動與公共設施開始增加",
+                            "time": 3
+                        }, {
+                            "text": "民宿也逐年攀升",
+                            "time": 8
+                        }, {
+                            "text": "截至2021年有400多家民宿，其中僅有149家合法",
+                            "time": 13
+                        }],
+                        "appProps": {
+                            "captionsSetting": {
+                                "xBoxAlign": "right",
+                                "xPosition": "8.7%",
+                                "yBoxAlign": "bottom",
+                                "yPosition": "30px"
+                            },
+                            "captionSetting": {
+                                "textAlign": "right"
+                            },
+                            "secondsPer100vh": 1.5,
+                            "skipLoadLocationRegExp": "editor",
+                            "forcedPreloadVideo": true,
+                            "gsapVersion": "3.5.1",
+                            "scrollTriggerVersion": "3.5.1",
+                            "pollingTimeout": 700,
+                            "preloadCacheType": "force-cache"
+                        },
+                        "theme": {
+                            "mq": {
+                                "mobileMaxWidth": "767px"
+                            },
+                            "captions": {
+                                "color": "#15294a",
+                                "link": {
+                                    "color": "#fcf4d7",
+                                    "underlineColor": "#fcf4d7"
+                                },
+                                "lineHieght": "2",
+                                "mobileLineHeight": "2",
+                                "fontStyle": "normal",
+                                "fontWeight": "bold",
+                                "fontSize": "26px",
+                                "mobile": {
+                                    "fontSize": "24px"
+                                },
+                                "fontFamily": "ff-tisa-web-pro, source-han-sans-traditional, Noto Sans TC, PingFang TC, Apple LiGothic Medium, Roboto, Microsoft JhengHei, Lucida Grande, Lucida Sans Unicode, sans-serif",
+                                "box": {
+                                    "background": "#e6effa",
+                                    "width": "500px",
+                                    "mobileWidth": "77%",
+                                    "spanPadding": "6px 15px",
+                                    "mobilePadding": "12px 12px 14px 18px"
+                                }
+                            }
+                        },
+                        "uuid": "d8b3d168-7770-4424-ab19-592eb750c63d"
+                    };
+                    window[namespace][pkg].push(data);
+                }
+            }
+        })()
+    </script>
+    <div id="d8b3d168-7770-4424-ab19-592eb750c63d"></div>
+
+    <script type="text/javascript" crossorigin
+        src="https://unpkg.com/@twreporter/scrollable-video@1.0.1/dist/main.abb2610d2c16acab4a4c.bundle.js"></script>
+
+
+    <!-- 地景航照圖1985&2016 -->
+
+    <!-- GIS圖*3     -->
+    <div id="section4">
+        <div id="first" class="container-fluid">
+            <div style="padding-top: 35vh; padding-left: 800px; padding-inline-end: 180px;">
+                <h4 style="color: #273961;">行政區界</h4>
+                <p style="font: size 22px;">
+                    小琉球行政區界劃分為八個村落，觀光產業由鄰近白沙尾碼頭的中福村及本福村興起，旅館民宿及濱海遊憩業者已遍及各村。
+                </p>
+            </div>
+            <div id="second" class="container-fluid">
+                <div style="padding-top: 35vh; padding-left: 800px; padding-inline-end: 180px;">
+                    <h4 style="color: #273961;">旅館及民宿</h4>
+                    <p style="font: size 22px;">
+                        截至2020年，旅宿業者已達400間，過半數的業者未申請合法經營執照。
+                        <br><br>目前僅透過屏東縣政府公布的合法業者，以及網路資訊取得約200間旅宿位置，缺乏小琉球當地的旅館、民宿資訊盤點與基礎資料建立。
+                    </p>
+                </div>
+                <div id="third" class="container-fluid">
+                    <div style="padding-top: 35vh; padding-left: 800px; padding-inline-end: 180px;">
+                        <h4 style="color: #273961;">濱海遊憩</h4>
+                        <p style="font: size 22px;">
+                            小琉球早期的濱海遊憩活動以浮潛為最大宗，隨著國內海洋活動盛行，逐漸開設「潛水、獨木舟、SUP立槳、玻璃船」等多元選擇。
+                            <br><br>然而，大量的業者投入海洋觀光版圖，使得遊客接踵而來，缺乏海域及陸域的分流管制，導致生態環境遭受的威脅與漠視。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+                <!-- 旅宿地景下的小島課題 -->
+                <div
+                    style="background-color:white; background-attachment: fixed; background-repeat: no-repeat; background-position: center; background-size: cover;">
+                    <div class="container" style="width: 100vw">
+                        <img src="https://res.cloudinary.com/dvrqzjv98/image/upload/v1641696746/270363843_209508194724562_3332670843228767611_n_1_admjsx.jpg"
+                            style="height: 100vh;">
+                    </div>
+                </div>
+
+                    <!-- 法規 -->
+                    <div
+                        style="background-color:white; background-attachment: fixed; background-repeat: no-repeat; background-position: center; background-size: cover;">
+                        <div class="container" style="width: 100vw">
+                            <img src="https://res.cloudinary.com/dvrqzjv98/image/upload/v1641821256/%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F_1_zzaukg.png"
+                                style="height: 100vh;">
+                        </div>
+                        <div class="container" style="width: 100vw">
+                            <img src="https://res.cloudinary.com/dvrqzjv98/image/upload/v1641877790/%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F_2_evxo06.png"
+                                style="height: 100vh;">
+                        </div>
+                    </div>
+
+                    <!-- 居民的聲音 -->
+                    <div
+                        style="height: 300vh; background-image:url(https://res.cloudinary.com/dr6z4jfde/image/upload/v1641498318/final/bg_bl_cc4e2j.png); background-attachment: fixed; background-repeat: no-repeat; background-position: center; background-size: cover;">
+                        <div class="container-fluid" style="height: 110vh; width: 60vw;">
+                            <p id="title" style="
+          text-align: center;
+          padding-top: 25vh;
+          text-shadow: 3px 3px 3px rgb(65, 65, 65); 
+          color: white; 
+          font-size: 5vh;
+          font-weight: 600;">居民的心聲</p>
+                            <p style="padding-top: 10vh; color:whitesmoke; font-size: 3vh; font-weight: 200;">
+                                不是太久以前，小琉球的居民可以在黑夜裡看見滿天星空。自從大量旅宿、娛樂產業興起進駐，當地的星空不復見，只有滿街熱鬧不歇的商家燈火。
+                            </p>
+                            <p style="padding-top: 5vh; color:whitesmoke; font-size: 3vh; font-weight: 200;">
+                                我們取得「小琉球居民自救會」反對鳳凰旅社興建十層樓飯店連署資料，整理當地居民看著家鄉被旅宿業進駐後的心聲。有些人憤慨地訴求終止無盡的觀光開發，有些則尋求觀光與永續發展的共榮可能。不同的聲音，指向同樣的問題：琉球鄉的旅宿業開發，應該受到明確法律規範。
+                            </p>
+                        </div>
+
+                        <div style="height:80vh;">
+                            <div id="shine">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(90deg) translateX(23px) translateY(-38px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="我是一位在外地工作的小琉球人，以前小時候放學就是往外跑從不擔心車多或是東西失竊的問題，但自從觀光發展以來，路上的車越來越多，一輛還比一輛快，海邊的人也越來越多，在回頭看營業的旅店及賣東西，也很多都是外地人。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-90deg) translateX(-19px) translateY(-19px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="從觀光發展以來，我們琉球人得到了什麼？在我看來我們失去的比得到的還多，因為得到是金錢與名氣，而失去的卻是我們小琉球的人文風情，原始面貌以及後代子孫的生活環境。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-76deg) translateX(38px) translateY(-40px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="我每次回小琉球都會覺得我越來越不認識我自己的故鄉了。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(54deg) translateX(-5px) translateY(17px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="我從小在小琉球出生長大，後來嫁到臺北，雖然因為種種因素無法時常回去，但每次回去看到家鄉的改變，真的很難過。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-5deg) translateX(10px) translateY(-20px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="小琉球民宿已經很多了，有一大半不是琉球人開的，現在又有財團要來蓋飯店，破壞我美麗的家鄉，當然不贊成啊⋯⋯">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(27deg) translateX(-2px) translateY(11px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="我是國中開始就跟著爸媽搬到台北居住的琉球人，但逢年過節都會回去家鄉，最近一次回去是在6月，看到整個島的觀光客，整個島的垃圾，整個島的民宿，我感覺我家鄉那純樸的味道漸漸消失。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-66deg) translateX(18px) translateY(-7px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="希望家鄉回歸平靜。現在的遊客已經很多了，不需要再有所增加。現在最需要的就是要控制登島人數，小琉球就這麼大了。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(48deg) translateX(-20px) translateY(-22px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="可以好好珍惜我們土地嗎？我們好不容易讓海龜回來了，現在又要蓋大樓飯店，把整座小琉球商業化，小琉球很簡單、很放鬆⋯⋯">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-13deg) translateX(7px) translateY(10px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="我是小琉球的媳婦，10年前小琉球真的是讓人放鬆的好地方，近幾年變化太大，其實也覺得遊客太多很厭煩，民宿一直蓋也越來越商業化，沙灘也被水上遊戲業者霸佔，中澳也因污水排放變很臭，已經不是當初我認識的小琉球了！">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(74deg) translateX(-33px) translateY(-27px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="1994年，我在小琉球出生長大，隨後因為求學與工作，輾轉去到台北⋯⋯期待小琉球繁榮的同時，不忘我們原來的樣貌。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-58deg) translateX(3px) translateY(16px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="我還是喜歡20年前的小琉球，大家在台灣本島工作，年節假期回到家鄉過節的氣氛，那種感覺現在已經消失。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-23deg) translateX(-5px) translateY(-3px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="不要壞了自己的根，雖然長年在外漂泊工作，但小琉球生態可以好好保護嗎？">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(23deg) translateX(-23px) translateY(8px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="小琉球的民宿其實已經到達一個飽和的狀態了，已經無法再繼續容納更多的遊客。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(14deg) translateX(0px) translateY(-19px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="家鄉是我的，以後我的子子孫孫還會一直住在這裡，如果集團來資源衰竭的速度很快，生態與錢財必須是平衡的，如果再這樣下去，賺錢就不長久了。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-62deg) translateX(-18px) translateY(-28px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="這幾年來，暑假一到電力幾乎都不足，遊客登島人數沒管制嚴重影響當地人生活品質，每天島上所製造的垃圾超多，現在這個小琉球已經不是我當年的那個家了。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(11deg) translateX(4px) translateY(26px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="小琉球很小真的不需要那麼高的飯店，希望能重視小琉球生態環境問題，不要為了利益而讓居民未來可能面對水電不夠用的情形。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(77deg) translateX(-9px) translateY(39px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="小琉球的水、電是由海底水管、電纜過來的。以前給居民使用，還有餘裕，現在一堆民宿，當民宿遊客爆量時，已造成遠端鄉民無水可用。若再增設10樓飯店，請問屏東縣政府如何解決水電問題？">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-55deg) translateX(9px) translateY(3px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="污水排法已導致珊瑚礁大量死亡，環境問題，如何改善？">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-16deg) translateX(30px) translateY(-21px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="垃圾運量目前已無法負荷，飯店水準的垃圾如何清運，是否又要全民買單？">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(10deg) translateX(25px) translateY(24px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="小琉球拒蓋10層樓飯店，若是發生火災，周遭的路都很狹窄根本無法快速救援，假若遊客眾多根本消防車都開不進去。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(69deg) translateX(-16px) translateY(18px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="建設飯店可能可以帶來觀光收入，但小琉球已被過度開發，且目前飯店位置亦需要更審慎的評估，避免安全性的問題。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-3deg) translateX(7px) translateY(-13px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="我最擔心的是我們的居家安全，我們只想要一個安全的居住環境。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-81deg) translateX(-9px) translateY(-33px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="小琉球空間已被民宿佔滿，生態保育也不如從前～若10層樓飯店蓋上去對於海洋排放污水將是一大憂慮。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-34deg) translateX(12px) translateY(-24px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="蓋大飯店是多餘的，都沒基礎建設。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(12deg) translateX(37px) translateY(2px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="請考慮小琉球的永續發展，讓未來的小孩能也有一片清澈大海可遊玩。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(62deg) translateX(1px) translateY(25px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="為了後世子孫，請停止再繼續破壞這美麗的小島啊，不要再蓋飯店破壞自然生態景觀。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-73deg) translateX(22px) translateY(-15px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="我反對在小琉球蓋那麼高的飯店，因為那破壞了小琉球的原貌。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(27deg) translateX(-24px) translateY(7px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="屏東縣政府從沒有任何對小琉球永續經營的規劃。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(6deg) translateX(-5px) translateY(18px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="近來年，越來越多人到小琉球觀光，對環境生態造成一定程度的破壞，拜託不要說什麼促進觀光之類的話！說穿了還不是為了錢！環境生態很難復原，拜託別把小琉球當賺錢工作。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-51deg) translateX(41px) translateY(-8px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="小琉球需要的是人潮的管制，才能提升旅遊品質，小琉球需要的生態永續，才能讓國際看見，一直以來都不是冰冷的高樓。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(18deg) translateX(-8px) translateY(-36px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="小琉球的潮間帶生態已快破壞怠盡了！又要蓋飯店，小時候的小琉球潮間帶生態豐富⋯⋯這美麗純真的天然島嶼，要被破壞商業化了！這樣的形態，能撐得了多久呢？！">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(38deg) translateX(27px) translateY(-14px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="一個純樸的小島並不需要蓋個大飯店吧！而且碼頭附近，海岸線第一排！ 這樣子整個島嶼看起來很突兀！">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-40deg) translateX(4px) translateY(31px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="小琉球整座島嶼都是珊瑚礁地質，蓋那麼高樓，附近居民住家安全如何處理？">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-9deg) translateX(-5px) translateY(10px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="小琉球本身就是一座面積不大的海島，蓋了大樓就會完全毀掉當地的風景，希望能考量到長期居住的住民、以及來小琉球欣賞島景的遊客的心情，不要興蓋大樓。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-23deg) translateX(-40px) translateY(-14px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="希望小琉球能實施人員管制，停止建造大型飯店。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(19deg) translateX(-17px) translateY(-34px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="蓋了一定有好有壞的，當地就業機會等等的好處，但真心覺得光住宿方面不需要再多了，每當六日或旺季的預約都滿滿的，但相對的整體品質已經下降許多。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(0deg) translateX(23px) translateY(38px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="我住在小琉球的最末端天福村，平日就已經有供水不足的問題了，試問： 如果又蓋了一個10樓的大飯店，那我們豈都沒有水可以用了嗎？馬達又要燒壞幾個。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(84deg) translateX(4px) translateY(0px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="琉球已經太多民宿了，在地人出個門都要膽戰心驚馬路小條遊客又不守規矩意外頻傳。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(37deg) translateX(38px) translateY(-40px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="我們的島只有一個，環境生態破壞後不可逆，讓我們永續經營生態環境。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-65deg) translateX(-17px) translateY(-24px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="土生土長 ，雖已移居高雄但不願每次回去看到琉球有這麼大的變化， 還是喜歡小時候的那個琉球。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(18deg) translateX(-8px) translateY(-36px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="人只是生活在這裡的一份子，人類要學習尊重生態！">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(38deg) translateX(27px) translateY(-14px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="請不要為了賺錢利益而破壞不顧週邊居民的安全與環境污染。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-40deg) translateX(4px) translateY(31px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="小琉球的美起源於大自然風情。建造了越來越多的人工建築，豈不是喪失了原本面貌？">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-9deg) translateX(-5px) translateY(-3px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="想留給後代一個漂亮美麗的小琉球。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-23deg) translateX(-40px) translateY(50px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="小琉球已過度開發，垃圾、污水都沒有配套，害怕琉球變成垃圾島。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(19deg) translateX(-17px) translateY(-34px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="小琉球已經過度開發，在地生活毫無品質可言，空汙，交通一片混亂。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(0deg) translateX(23px) translateY(38px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="我是小琉球人，我希望政府能正視小琉球正在被大量觀光消費破壞之虞，商業外力還要來進一步的加速環境美觀的破壞。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(84deg) translateX(4px) translateY(0px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="遊客人數需控管，民宿也應該加以控管。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(37deg) translateX(38px) translateY(-40px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="依照目前小琉球現有民宿和遊客數目來看，已然不適合在進行增加遊客的行為，並且因考量最近遊客的行為舉止來說，本人甚至想提議環境保護期，來保護環境。">
+                                <img class="shine"
+                                    src="https://res.cloudinary.com/dr6z4jfde/image/upload/v1641815231/final/269894833_602846077488983_5664235139506551283_n_zqb0p9.png"
+                                    style="transform:rotate(-65deg) translateX(-17px) translateY(-24px)"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="請做好遊客總量管制，嚴格取締非法民宿，及汚水處理，請還給鄉民一個寧靜的家園，乾淨的海洋，美麗的生態。">
+
+                            </div>
+                        </div>
+                        <div class="container-fluid" style="height: 10vh; width: 60vw;">
+                            <p
+                                style="text-align:center; color:rgb(254, 255, 169); text-shadow: 1px 1px 1px rgb(255, 255, 255);font-size: 3vh; font-weight: 400;">
+                                游標移到星星上聆聽小琉球居民心聲
+                            </p>
+                        </div>
+                        <div class="container-fluid" style="height: 100vh; width: 60vw;">
+                            <p id="title" style="
+          text-align: center;
+          padding-top: 15vh;
+          text-shadow: 3px 3px 3px rgb(65, 65, 65); 
+          color: white; 
+          font-size: 5vh;
+          font-weight: 600;">結語</p>
+                            <p style="padding-top: 10vh; color:whitesmoke; font-size: 3vh; font-weight: 200;">
+                                台灣觀光局在「2030 年觀光政策白皮書」中提出「綠色觀光」概念；屏東縣政府近年在施政總報告中，屢次強調「永續觀光」的重要性。
+                            </p>
+                            <p style="padding-top: 5vh; color:whitesmoke; font-size: 3vh; font-weight: 200;">
+                                以此觀光願景檢視小琉球現有的措施，已展開海洋環境相關的實際行動：環保餐具租借系統、海洋公民科學、海洋垃圾清理及潮間帶管制等。然而，針對「陸域環境」的政策思考與現況討論仍是缺乏的。
+                            </p>
+                            <p style="padding-top: 5vh; color:whitesmoke; font-size: 3vh; font-weight: 200;">
+                                從觀光產業中興起的旅宿版圖，已從在地業者延伸至外來企業、建商的進駐。這座僅有6.8平方公里的小島，有多少空間能夠負荷不斷上升的開發乘載量？
+                            </p>
+                            <p style="padding-top: 5vh; color:whitesmoke; font-size: 3vh; font-weight: 200;">
+                                小琉球岌岌可危的陸域景觀，有賴政府重新檢視既有法規、執行力，以及當地居民與業者對此課題的反思與共識。
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- editor -->
+
+                    <div>
+                        <div id="editor" class="container-fluid text-center"
+                            style="
+        height:50vh;
+        background-image:url(https://res.cloudinary.com/dr6z4jfde/image/upload/v1641498318/final/bg_bl_cc4e2j.png); background-attachment: fixed; background-repeat: no-repeat; background-position: center; background-size: cover;">
+                            <p id="editor" style="
+              max-width: 40%;
+              font-family:Arial;
+              text-align: justify;
+              color:white;
+              padding: 5vh 5vh 5vh 5vh;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);">
+                                <br><br>
+                                <br><br>
+                                <br><br>
+                                <h6 style="color:white; text-align: center;">網頁設計工程｜張家瑜、翁靖婷、馬揚異</h6>
+                                <h6 style="color:white; text-align: center;">資料分析、圖表製作｜張家瑜、翁靖婷</h6>
+                                <h6 style="color:white; text-align: center;">攝影｜翁靖婷</h6>
+                                <br><br>
+                                <h6 style="color:white; text-align: center;">Copyright©2022 版權所有，禁止擅自轉貼節錄</h6>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                    crossorigin="anonymous">
+                </script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                    crossorigin="anonymous">
+                </script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                    crossorigin="anonymous">
+                </script>
+
+                <!-- GIS, JS -->
+                <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+                    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+                    crossorigin="anonymous">
+                </script>
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+                    crossorigin="anonymous">
+                </script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+                    crossorigin="anonymous">
+                </script>
+
+                
+<script>
+    $(function () {
+        var winh = $(window).height();
+        var outer_pos = $("#outer2").offset().top;
+        var outer_end = outer_pos + $("#outer2").height();
+
+        $(window).scroll(function () {
+            var scrolled = $(document).scrollTop();
+            $(".opa").each(function () {
+                if (scrolled > outer_pos && scrolled < outer_end) {
+                    var opRange = $(this).parent().height() / 5;
+                    // $(this).css("opacity", ($(this).data("seq") * opRange - scrolled)) / opRange;
+                    $(this).css("opacity", $(this).data("pos") - (scrolled -
+                        outer_pos) / winh);
+                    console.log(
+                        "[" +
+                        ((scrolled - outer_pos) / winh).toPrecision(1) +
+                        "]" +
+                        index +
+                        ": " +
+                        $(this).css("opacity")
+                    );
+                }
+
+            });
+
+
+            $(".maploc").each(function () {
+                var thispos = $(this).offset().top;
+                var thish = $(this).height();
+                if (scrolled >= thispos && scrolled < thispos + thish) {
+                    $("#bg-img").css({
+                        "background-position": $(this).data("bgpos")
+                    });
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            var max_scroll = $("#outer").parent().height() - $(window).height();
+            var win_w = $(window).width();
+            var out_pos = $("#outer").parent().offset().top;
+
+            $(window).scroll(function () {
+                var scrolled = $(window).scrollTop();
+                console.log(scrolled + "/" + out_pos);
+
+                if (scrolled > out_pos && scrolled < out_pos + max_scroll) {
+                    var new_width = (win_w * (scrolled - out_pos)) / max_scroll;
+                    $("#statusbar").css({
+                        width: new_width
+                    });
+                }
+            });
+        });
+
+    });
+    var tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+</script>
+
+</body>
+
+</html>
